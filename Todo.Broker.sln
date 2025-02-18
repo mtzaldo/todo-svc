@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Broker", "Todo.Broker\Todo.Broker.csproj", "{58FDDEE1-FBA2-42C6-B528-793C4EF1DAF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Broker.Tests", "Todo.Broker.Tests\Todo.Broker.Tests.csproj", "{C5B14001-F5C9-41DD-84CB-6E43723A76DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58FDDEE1-FBA2-42C6-B528-793C4EF1DAF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58FDDEE1-FBA2-42C6-B528-793C4EF1DAF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58FDDEE1-FBA2-42C6-B528-793C4EF1DAF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58FDDEE1-FBA2-42C6-B528-793C4EF1DAF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B14001-F5C9-41DD-84CB-6E43723A76DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B14001-F5C9-41DD-84CB-6E43723A76DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B14001-F5C9-41DD-84CB-6E43723A76DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B14001-F5C9-41DD-84CB-6E43723A76DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
