@@ -10,13 +10,13 @@ public class AddTodoUseCase : IAddTodoUseCase
     {
         this.commands = commands;
     }
-    public Result<string> AddTodo(string description)
+    public async Task<Result<int>> AddTodo(string username, string title, bool completed)
     {
-        return Result.Ok("Added");
+        return await this.commands.SaveTodo(username, title, completed);
     }
 }
 
 public interface IAddTodoUseCase
 {
-    Result<string> AddTodo(string description);
+    Task<Result<int>> AddTodo(string username, string title, bool completed);
 }
