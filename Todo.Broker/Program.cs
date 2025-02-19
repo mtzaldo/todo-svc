@@ -1,3 +1,6 @@
+using Todo.Broker.Features.Todo.AddTodo;
+using Todo.Broker.Features.Todo.GetTodos;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddHealthChecks();
 builder.Services.AddControllers();
+
+builder.Services.AddSingleton<IAddTodoUseCase, AddTodoUseCase>();
+builder.Services.AddSingleton<IGetTodosUseCase, GetTodosUserCase>();
+
+builder.Services.AddSingleton<IGetTodosQueries, GetTodosQueries>();
+builder.Services.AddSingleton<IAddTodoCommands, AddTodoCommands>();
 
 var app = builder.Build();
 
@@ -15,6 +24,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UsePathBase("/api");
 app.UseRouting();
 app.MapControllers().WithOpenApi();
 app.MapHealthChecks("/health-check");
