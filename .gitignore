@@ -402,3 +402,5 @@ FodyWeavers.xsd
 #vscode
 .vscode
 Properties/
+
+appsettings.Development.json

@@ -11,11 +11,11 @@ builder.Services.AddHealthChecks();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>();
 
-builder.Services.AddSingleton<IAddTodoUseCase, AddTodoUseCase>();
-builder.Services.AddSingleton<IGetTodosUseCase, GetTodosUserCase>();
+builder.Services.AddScoped<IAddTodoUseCase, AddTodoUseCase>();
+builder.Services.AddScoped<IGetTodosUseCase, GetTodosUserCase>();
 
-builder.Services.AddSingleton<IGetTodosQueries, GetTodosQueries>();
-builder.Services.AddSingleton<IAddTodoCommands, AddTodoCommands>();
+builder.Services.AddScoped<IGetTodosQueries, GetTodosQueries>();
+builder.Services.AddScoped<IAddTodoCommands, AddTodoCommands>();
 
 var app = builder.Build();
 
