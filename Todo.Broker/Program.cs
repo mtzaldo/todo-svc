@@ -1,3 +1,4 @@
+using Todo.Broker.Domain.Entities;
 using Todo.Broker.Features.Todo.AddTodo;
 using Todo.Broker.Features.Todo.GetTodos;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddHealthChecks();
 builder.Services.AddControllers();
+builder.Services.AddDbContext<DataContext>();
 
 builder.Services.AddSingleton<IAddTodoUseCase, AddTodoUseCase>();
 builder.Services.AddSingleton<IGetTodosUseCase, GetTodosUserCase>();
