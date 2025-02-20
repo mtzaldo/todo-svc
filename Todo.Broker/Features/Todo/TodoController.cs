@@ -30,8 +30,11 @@ public class TodoController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult Get([FromServices]IGetTodosUseCase useCase)
+    public async Task<IActionResult> Get([FromServices]IGetTodosUseCase useCase)
     {
-        return Ok(useCase.GetTodos());
+        var result = await useCase.GetTodos();
+        var response = result.ToApiResponse();
+
+        return result.IsSuccess? Ok(response) : NoContent();
     }
 }

@@ -1,3 +1,4 @@
+using FluentResults;
 using Todo.Broker.Domain.Models;
 
 namespace Todo.Broker.Features.Todo.GetTodos;
@@ -11,13 +12,13 @@ public class GetTodosUserCase : IGetTodosUseCase
     
     private readonly IGetTodosQueries queries;
 
-    public IEnumerable<TodoItem> GetTodos()
+    public async Task<Result<IEnumerable<TodoItem>>> GetTodos()
     {
-        return queries.GetTodos();
+        return await queries.GetTodos();
     }
 }
 
 public interface IGetTodosUseCase
 {
-    IEnumerable<TodoItem> GetTodos();
+    Task<Result<IEnumerable<TodoItem>>> GetTodos();
 }

@@ -1,3 +1,5 @@
+using FluentResults;
+using Microsoft.EntityFrameworkCore;
 using Todo.Broker.Domain.Entities;
 using Todo.Broker.Domain.Models;
 
@@ -11,15 +13,17 @@ public class GetTodosQueries : IGetTodosQueries
     {
         this.db = db;
     }
-    public IEnumerable<TodoItem> GetTodos()
+    public async Task<Result<IEnumerable<TodoItem>>> GetTodos()
     {
-        return this.db.Todos.Select(
+        IEnumerable<TodoItem> todos = await this.db.Todos.Select(
             t => new TodoItem(t.Id, t.Title, t.Completed)
-        );
+        ).ToListAsync();
+
+        return Result.Ok(todos);
     }
 }
 
 public interface IGetTodosQueries
 {
-    IEnumerable<TodoItem> GetTodos();
+    Task<Result<IEnumerable<TodoItem>>> GetTodos();
 }
