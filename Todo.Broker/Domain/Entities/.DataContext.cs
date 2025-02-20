@@ -15,6 +15,17 @@ public class DataContext : DbContext
         optionsBuilder.UseNpgsql(this.configuration.GetConnectionString("DefaultConnection"));
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<TodoEntity>()
+            .Property(t => t.Enabled)
+            .HasDefaultValue(true);
+
+        modelBuilder.Entity<AddressEntity>()
+            .Property(a => a.Line2)
+            .HasDefaultValue(string.Empty);
+    }
+
     public DbSet<TodoEntity> Todos { get; set; }
     public DbSet<UserEntity> Users { get; set; }
     public DbSet<AddressEntity> Addresses { get; set; }

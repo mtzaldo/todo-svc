@@ -15,9 +15,11 @@ public class GetTodosQueries : IGetTodosQueries
     }
     public async Task<Result<IEnumerable<TodoItem>>> GetTodos()
     {
-        IEnumerable<TodoItem> todos = await this.db.Todos.Select(
-            t => new TodoItem(t.Id, t.Title, t.Completed)
-        ).ToListAsync();
+        IEnumerable<TodoItem> todos = await this.db.Todos
+            .Where(t => t.Enabled)
+            .Select(
+                t => new TodoItem(t.Id, t.Title, t.Completed)
+            ).ToListAsync();
 
         return Result.Ok(todos);
     }

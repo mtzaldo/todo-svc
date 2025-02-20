@@ -20,7 +20,8 @@ public class AddTodoCommands : IAddTodoCommands
         var todo = new TodoEntity() {
             Title = title,
             Completed = completed,
-            User = user
+            User = user,
+            Enabled = true
         };
 
         await db.Todos.AddAsync(todo);
