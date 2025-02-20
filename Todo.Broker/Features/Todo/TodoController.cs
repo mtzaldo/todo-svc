@@ -1,3 +1,5 @@
+using System.Net;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Todo.Broker.Domain.Boundaries;
 using Todo.Broker.Features.Todo.AddTodo;
@@ -35,6 +37,6 @@ public class TodoController : ControllerBase
         var result = await useCase.GetTodos();
         var response = result.ToApiResponse();
 
-        return result.IsSuccess? Ok(response) : NoContent();
+        return result.IsSuccess? Ok(response) : StatusCode(500, response);
     }
 }
