@@ -1,6 +1,0 @@
-@Todo.Broker_HostAddress = http://localhost:5086
-
-GET {{Todo.Broker_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

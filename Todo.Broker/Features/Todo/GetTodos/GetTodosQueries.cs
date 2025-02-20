@@ -14,12 +14,8 @@ public class GetTodosQueries : IGetTodosQueries
     public IEnumerable<TodoItem> GetTodos()
     {
         return this.db.Todos.Select(
-            t => new TodoItem() {
-                Id = t.Id,
-                IsCompleted = t.Completed,
-                Title = t.Title
-            }
-        ).ToList();
+            t => new TodoItem(t.Id, t.Title, t.Completed)
+        );
     }
 }
 
